@@ -1,4 +1,4 @@
 console.log('Loaded!');
-var element=document.getelementById('main');
+var element=document.getElementById('main');
 
 element.innerHTML='i too love you';
