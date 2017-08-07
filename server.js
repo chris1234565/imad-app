@@ -78,11 +78,10 @@ var articleName=req.params.articleName;
 res.send(createtemplate(articles[articleName]));
 });
 
+
 var count=0;
-app.get('/count',function(req,res)
-{
-   count=count+1;
-   res.send(count.toString());
+app.get('/count', function (req, res) {
+  res.send(count.toString());
 });
 
 
