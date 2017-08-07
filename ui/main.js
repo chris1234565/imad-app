@@ -13,12 +13,26 @@ image.onclick=function(){
 };
 
 
-var counter=0;
+
+
+
 var button=document.getElementById('counter');
+
 button.onclick=function(){
-  counter=counter+1;
-  var sp=document.getElementById('count');
-  sp.innerHTML=counter.toString();
+var request=new XMLHTTPRequest();
+
+request.onreadystatechange=function(){
+  if(request.readystate===XMLHTTPRequest.DONE){
+      if(request.status===200){
+          var counter=request.responseText;
+          var sp=document.getElementById('count');
+          sp.innerHTML=counter.toString();
+      }
+  }  
+};
+request.open('GET','http://celestianc73.imad.hasura-app.io',true);
+request.send(null);
+    
 };
 
 
