@@ -79,9 +79,10 @@ res.send(createtemplate(articles[articleName]));
 });
 
 
+
 var count=0;
 app.get('/count', function (req, res) {
-  res.send(count.toString());
+    count=count+1;
 });
 
 
