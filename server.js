@@ -6,21 +6,55 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var content={
-    
+var articleonecontent = {
+ title: 'Francis P A',
+                            heading:'Cet trivandrum',
+                            date: 'Aug 7 2017',
+                            content:`
+                            <p> I love to be an IES.  I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES</p>
+                            <p>
+                            I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES
+                                       </p>`                      
 };
+    
 
-
-
-
-
-
-
-
-
-
-
-
+function createtemplate(data)
+{
+    var title=data.title;
+    var heading=data.heading;
+    var date=data.date;
+    var content=data.content;
+    
+        var htmltemplate=`
+        <html>
+        <head>
+        <title>
+        ${title}
+        </title>    
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link href="/ui/style.css" rel="stylesheet" />
+        </head>
+        
+        <body>
+        <div class= "container">
+        <div>
+        <a href="/">Chris</a>
+        </div>
+        <h3>
+        ${heading}
+        </h3>
+        <div>
+        ${date}
+        </div>
+        <div>
+        ${content}
+        </div> 
+        </div>
+        </body>
+        </html>
+        `;
+        return htmltemplate;
+}
 
 
 
@@ -31,7 +65,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/article-a',function(req,res){
-res.sendFile(path.join(__dirname, 'ui', 'article-1.html'));    
+res.send(createtemplate(articleonecontent));
 });
 
 
