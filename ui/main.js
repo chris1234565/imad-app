@@ -14,10 +14,12 @@ image.onclick=function(){
 
 var counter=0;
 var button=document.getElementById('counter');
-window.onload = function () {
+window.onload = change;
+function change() {
 button.onclick=function(){
   counter=counter+1;
   var sp=document.getElementById('count');
   sp.innerHTML=counter.toString();
 };
-};
+}
+
