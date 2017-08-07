@@ -5,8 +5,8 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-
-var articleonecontent = {
+var articles={
+'article-1':{
  title: 'Francis P A',
                             heading:'Cet trivandrum',
                             date: 'Aug 7 2017',
@@ -15,8 +15,17 @@ var articleonecontent = {
                             <p>
                             I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES
                                        </p>`                      
+},
+'article-2':{ title: 'Francis P A',
+                            heading:'Cet trivandrum',
+                            date: 'Aug 7 2017',
+                            content:`
+                            <p> I love to be an IES.  I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES</p>
+                            <p>
+                            I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES
+                                       </p>`                      
+}
 };
-    
 
 function createtemplate(data)
 {
@@ -64,19 +73,12 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-a',function(req,res){
-res.send(createtemplate(articleonecontent));
+app.get('/:articleName',function(req,res){
+var articleName=req.params.articleName;
+res.send(createtemplate(articles[articleName]));
 });
 
 
-app.get('/article-b',function(req,res){
-res.sendFile(path.join(__dirname, 'ui', 'article-2.html'));    
-});
-
-
-app.get('/article-c',function(req,res){
-res.send('c..hey u r great');    
-});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
