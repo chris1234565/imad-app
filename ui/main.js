@@ -11,10 +11,10 @@ image.onclick=function(){
    var interval= setInterval(moveRight,50);
 };
 
-var c=0;
-var button=document.getElementById('chris_counter');
+var counter=0;
+var button=document.getElementById('counter');
 button.onclick=function(){
-  c=c+1;
-  var span=document.getElementById('c_count');
-  span.innerHTML=c.toString();
+  counter=counter+1;
+  var span=document.getElementById('count');
+  span.innerHTML=counter.toString();
 };
