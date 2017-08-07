@@ -1,5 +1,6 @@
 console.log('Loaded!');
 var element=document.getElementById('main');
+
 element.innerHTML='Cool';
 var image=document.getElementById('madi');
 var marginLeft=0;
@@ -13,8 +14,10 @@ image.onclick=function(){
 
 var counter=0;
 var button=document.getElementById('counter');
+window.onload = function () {
 button.onclick=function(){
   counter=counter+1;
   var sp=document.getElementById('count');
   sp.innerHTML=counter.toString();
+};
 };
