@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 var articles={
-'article-1':{
+'article-a':{
  title: 'Francis P A',
                             heading:'Cet trivandrum',
                             date: 'Aug 7 2017',
@@ -16,7 +16,7 @@ var articles={
                             I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES I love to be an IES
                                        </p>`                      
 },
-'article-2':{ title: 'Francis P A',
+'article-b':{ title: 'Francis P A',
                             heading:'Cet trivandrum',
                             date: 'Aug 7 2017',
                             content:`
