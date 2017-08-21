@@ -96,9 +96,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/articles/article',function(req,res){
-//var articleName=req.params.articleName;
-pool.query('SELECT * FROM test',function(err,result){
+app.get('articles/:articleName',function(req,res){
+var articleName=req.params.articleName;
+pool.query("SELECT * FROM article_1 where title="+req.params.articleName,function(err,result){
     if(err){
         res.status(500).send(error.toString());
     }
@@ -110,6 +110,7 @@ pool.query('SELECT * FROM test',function(err,result){
         }
     }
 });
+res.send(createtemplate(articles[articleName]));
 });
 
 
@@ -132,3 +133,4 @@ var port = 80;
 app.listen(port, function () {
   console.log(`IMAD course app listening on port ${port}!`);
 });
+//
