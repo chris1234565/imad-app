@@ -4,6 +4,27 @@ var path = require('path');
 
 var app = express();
 app.use(morgan('combined'));
+var pool=require('pg').Pool;
+var config={
+user:'celestianc73',
+database:'celestianc73',
+host:'db.imad.hasura-app.io',
+port:'5432',
+password:process.env.DB_PASSWORD
+};
+
+
+var pool= new Pool(config);
+app.get('/test-db',function(req,res){
+    pool.query('SELECT * from test',function(err,result){
+       
+        if (err) {res.status(500).send(err.toString());}
+        else{res.send(JSON.stringify(result));  }
+    }
+        );
+});
+
+
 
 var articles={
 'article-a':{
