@@ -16,7 +16,7 @@ password:process.env.DB_PASSWORD
 
 var pool= new Pool(config);
 app.get('/test-db',function(req,res){
-    pool.query('SELECT * from article_1',function(err,result){
+    pool.query('SELECT * from test',function(err,result){
        
         if (err) {res.status(500).send(err.toString());}
         else{res.send(JSON.stringify(result.rows));  }
@@ -106,7 +106,8 @@ pool.query("SELECT * FROM article_1 where title='+req.params.articleName'",funct
         if(result.rowslength===0){res.status(404).send('Article not found');}
         else{
             var articleData=result.row[0];
-            res.send(createTemplate(articleData));
+            res.send(JSON.stringify(articleData));
+          //  res.send(createTemplate(articleData));
         }
     }
 });
