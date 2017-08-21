@@ -96,21 +96,13 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-
 app.get('/articles/:articleName',function(req,res){
-pool.query("SELECT * FROM article_1 where title='"+req.params.articleName+"'",function(err,result){
-    if(err){
-        res.status(500).send(error.toString());
+    pool.query("SELECT * from article_1 where title='"+req.params.articleName+"'",function(err,result){
+       
+        if (err) {res.status(500).send(err.toString());}
+        else{res.send(createtemplate(result.rows[0]));  }
     }
-    else{
-        if(result.rowslength===0){res.status(404).send('Article not found');}
-        else{
-            var articleData=result.row[0];
-            res.send(createtemplate(articleData));
-        }
-    }
-});
-//res.send(createtemplate(articles[articleName]));
+        );
 });
 
 
