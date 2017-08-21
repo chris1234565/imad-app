@@ -25,7 +25,7 @@ app.get('/test-db',function(req,res){
 });
 
 app.get('/t',function(req,res){
-    pool.query('SELECT * from article_1',function(err,result){
+    pool.query("SELECT * from article_1 where title='article-one'",function(err,result){
        
         if (err) {res.status(500).send(err.toString());}
         else{res.send(JSON.stringify(result.rows));  }
