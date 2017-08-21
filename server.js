@@ -96,9 +96,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/articles/article-one',function(req,res){
+app.get('/articles/article1',function(req,res){
 //var articleName=req.params.articleName;
-pool.query("SELECT * FROM test",function(err,result){
+pool.query('SELECT * FROM test',function(err,result){
     if(err){
         res.status(500).send(error.toString());
     }
