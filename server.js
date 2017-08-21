@@ -97,7 +97,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('articles/article-one',function(req,res){
-pool.query("SELECT * FROM test where name=hello",function(err,result){
+pool.query('SELECT * FROM test where name=hello',function(err,result){
     if(err){
         res.status(500).send(error.toString());
     }
