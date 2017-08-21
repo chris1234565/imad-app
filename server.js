@@ -97,7 +97,7 @@ app.get('/', function (req, res) {
 });
 
 var pool2= new Pool(config);
-app.get('articles/:articleName',function(req,res){
+app.get('/articles/:articleName',function(req,res){
 pool2.query("SELECT * FROM article_1 where title='+req.params.articleName'",function(err,result){
     if(err){
         res.status(500).send(error.toString());
