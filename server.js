@@ -98,7 +98,7 @@ app.get('/', function (req, res) {
 
 app.get('articles/:articleName',function(req,res){
 //var articleName=req.params.articleName;
-pool.query("SELECT * from test",function(err,result){
+pool.query("SELECT * FROM test",function(err,result){
     if(err){
         res.status(500).send(error.toString());
     }
@@ -110,7 +110,6 @@ pool.query("SELECT * from test",function(err,result){
         }
     }
 });
-res.send(createtemplate(articles[articleName]));
 });
 
 
