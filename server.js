@@ -28,7 +28,7 @@ app.get('/articles/:articleName',function(req,res){
     pool.query("SELECT * from article_1 where title='"+req.params.articleName+"'",function(err,result){
        
         if (err) {res.status(500).send(err.toString());}
-        else{res.send(JSON.stringify(result.rows[0]));  }
+        else{res.send(createTemplate(result.rows[0]));  }
     }
         );
 });
