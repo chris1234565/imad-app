@@ -105,7 +105,7 @@ pool2.query("SELECT * FROM article_1 where title='+req.params.articleName'",func
     else{
         if(result.rowslength===0){res.status(404).send('Article not found');}
         else{
-            var articleData=result.row[0];
+            var articleData=result;
             res.send(createTemplate(articleData));
         }
     }
