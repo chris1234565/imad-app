@@ -96,9 +96,9 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+var pool2= new Pool(config);
 app.get('articles/:articleName',function(req,res){
-var articleName=req.params.articleName;
-pool.query("SELECT * FROM article_1 where title="+req.params.articleName,function(err,result){
+pool2.query("SELECT * FROM article_1 where title='+req.params.articleName'",function(err,result){
     if(err){
         res.status(500).send(error.toString());
     }
@@ -110,7 +110,7 @@ pool.query("SELECT * FROM article_1 where title="+req.params.articleName,functio
         }
     }
 });
-res.send(createtemplate(articles[articleName]));
+//res.send(createtemplate(articles[articleName]));
 });
 
 
