@@ -98,7 +98,7 @@ app.get('/', function (req, res) {
 
 app.get('articles/:articleName',function(req,res){
 //var articleName=req.params.articleName;
-pool.query("SELECT * FROM article_1",function(err,result){
+pool.query("SELECT * test",function(err,result){
     if(err){
         res.status(500).send(error.toString());
     }
