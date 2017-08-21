@@ -97,8 +97,8 @@ app.get('/', function (req, res) {
 });
 
 
-app.get('/articles/:articleName',function(req,res){
-pool.query("SELECT * FROM article_1 where title='+req.params.articleName'",function(err,result){
+app.get('/1',function(req,res){
+pool.query("SELECT * FROM article_1 where title='article-one'",function(err,result){
     if(err){
         res.status(500).send(error.toString());
     }
